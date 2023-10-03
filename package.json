@@ -14,16 +14,22 @@
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "framer-motion": "^10.16.4",
+    "graphql-request": "^6.1.0",
+    "he": "^1.2.0",
     "next": "latest",
+    "next-mdx-remote": "^4.4.1",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "react-transition-group": "^4.4.5"
   },
   "devDependencies": {
     "@types/node": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
+    "@types/react-transition-group": "^4.4.7",
     "eslint": "latest",
     "eslint-config-next": "latest",
+    "prettier": "3.0.3",
     "typescript": "latest"
   }
 }
