@@ -7,7 +7,7 @@ export default function StatSection({
   gridTitle,
   ...props
 }) {
-  if (!(columns || columns.length)) return null
+  if (!(columns || columns?.length)) return null
 
   return (
     <Box bg="gray.50" pt={[12, 16]}>
@@ -37,7 +37,7 @@ export default function StatSection({
           <Box pos="absolute" inset="0" h="50%" bg="gray.50"></Box>
           <Box pos="relative" maxW="7xl" mx="auto" px={[4, 6, null, 8]}>
             <Box maxW="4xl" mx="auto">
-              <Box
+              {/* <Box
                 as="dl"
                 borderRadius="lg"
                 bg="white"
@@ -90,7 +90,7 @@ export default function StatSection({
                     </Flex>
                   )
                 })}
-              </Box>
+              </Box> */}
             </Box>
           </Box>
         </Box>

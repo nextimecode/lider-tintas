@@ -1,7 +1,7 @@
 import { Box, Heading, Stack, Text, Button } from '@chakra-ui/react'
 
-export function Breakpoint({ buttons, subtitle, title }) {
-  if (!(buttons || buttons.length)) return null
+export default function Breakpoint({ buttons, subtitle, title }) {
+  if (!(buttons || buttons?.length)) return null
 
   return (
     <Box bg="white">

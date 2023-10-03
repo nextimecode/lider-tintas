@@ -82,7 +82,7 @@ export default function Grid({
               </Box>
             )}
           </Box>
-          <Stack
+          {/* <Stack
             as={gridTag || 'dl'}
             mt={{ base: 10, lg: splitLayout && 0 }}
             spacing={[10, 0]}
@@ -105,7 +105,7 @@ export default function Grid({
 
                   return <Component key={column.id} {...column} />
                 })}
-          </Stack>
+          </Stack> */}
         </Box>
       </Box>
     </Box>

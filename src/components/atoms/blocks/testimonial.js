@@ -9,7 +9,7 @@ export default function Testimonial({ content, person }) {
   return (
     <Box as="section" py={[12, null, 20, 24]} bg="gray.50" overflow="hidden">
       <Box pos="relative" maxW="7xl" mx="auto" px={[4, 6, null, 8]}>
-        <Box
+        {/* <Box
           as={DotsSVG}
           pos="absolute"
           top="100%"
@@ -20,7 +20,7 @@ export default function Testimonial({ content, person }) {
             lg: 'translate(50%, -25%)',
             xl: 'translate(50%, -50%)'
           }}
-        />
+        /> */}
         <Box pos="relative">
           <Box h={8} pos="relative">
             {/* <Image
@@ -41,7 +41,7 @@ export default function Testimonial({ content, person }) {
             >
               <MDXRemote {...content.mdx} />
             </Box>
-            <Box as="footer" mt={8}>
+            {/* <Box as="footer" mt={8}>
               <Box
                 display={{ md: 'flex' }}
                 alignItems={{ md: 'center' }}
@@ -49,12 +49,12 @@ export default function Testimonial({ content, person }) {
               >
                 <Box flexShrink={{ md: 0 }}>
                   <Box mx="auto" h={10} w={10} position="relative">
-                    {/* <Image
+                    <Image
                       className="avatar"
                       alt={`${person.name} photo`}
                       src={person.photo.url}
                       layout="fill"
-                    /> */}
+                    />
                   </Box>
                 </Box>
                 <Box
@@ -85,7 +85,7 @@ export default function Testimonial({ content, person }) {
                   )}
                 </Box>
               </Box>
-            </Box>
+            </Box> */}
           </Box>
         </Box>
       </Box>

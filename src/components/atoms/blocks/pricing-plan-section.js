@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react'
+// import { useState } from 'react'
 import { Button, Box, Stack } from '@chakra-ui/react'
 
 function PricingButton({ isActive, children, ...rest }) {
@@ -27,11 +27,11 @@ function PricingButton({ isActive, children, ...rest }) {
 }
 
 export default function PricingPlanSection({ page, ...grid }) {
-  const [billingPeriod, setBillingPeriod] = useState('annual')
+  // const [billingPeriod, setBillingPeriod] = useState('annual')
 
   return (
     <>
-      <Box
+      {/* <Box
         px={[4, 6, null, 8]}
         display={{ sm: 'flex' }}
         flexDirection={{ sm: 'column' }}
@@ -61,7 +61,8 @@ export default function PricingPlanSection({ page, ...grid }) {
             Annual billing
           </PricingButton>
         </Stack>
-      </Box>
+      </Box> */}
+      isso
     </>
   )
 }
