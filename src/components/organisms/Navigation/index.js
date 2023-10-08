@@ -11,11 +11,11 @@ import {
   Stack
 } from '@chakra-ui/react'
 import { Link } from '@chakra-ui/next-js'
-import { useRouter, usePathname } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 import { Transition } from 'react-transition-group'
 
-import { LogoSVG, MarkSVG } from '@/components/atoms/svgs'
-import { MenuIcon, XIcon } from '@/components/atoms/icons'
+import { LogoSVG, MarkSVG } from '@/components'
+import { MenuIcon, XIcon } from '@/components'
 
 const defaultStyle = {
   transition: `all 150ms cubic-bezier(0.4, 0, 1, 1)`
@@ -30,7 +30,6 @@ const transitionStyles = {
 
 export function Navigation({ pages }) {
   const container = useRef(null)
-  const router = useRouter()
   const [mobileNavOpen, setMobileNavOpen] = useState(false)
   const pathname = usePathname()
 
@@ -167,7 +166,6 @@ export function Navigation({ pages }) {
         >
           <Flex w={{ lg: 0 }} flex={{ lg: '1 1 0' }}>
             <Link href="/">
-              <VisuallyHidden>Hygraph</VisuallyHidden>
               <Box as={LogoSVG} h={10} color="indigo.600" w="auto" />
             </Link>
           </Flex>

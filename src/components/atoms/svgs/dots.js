@@ -1,4 +1,4 @@
-export default function Dots({ ...props }) {
+export function DotsSVG({ ...props }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

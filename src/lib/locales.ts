@@ -1,12 +1,8 @@
 const locales = [
   {
-    value: 'en',
-    label: 'English',
+    value: 'pt_BR',
+    label: 'Portuguese (Brazil)',
     default: true
-  },
-  {
-    value: 'de',
-    label: 'German'
   }
 ]
 

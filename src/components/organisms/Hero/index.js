@@ -4,8 +4,8 @@ import { Box, Heading, Stack } from '@chakra-ui/react'
 import Image from 'next/image'
 import { MDXRemote } from 'next-mdx-remote'
 
-import { Button } from '@/components/atoms/Button'
-import { Navigation } from '@/components/organisms/Navigation'
+import { Button } from '@/components'
+import { Navigation } from '@/components'
 
 export function Hero({ buttons, image, navigation, page }) {
   return (

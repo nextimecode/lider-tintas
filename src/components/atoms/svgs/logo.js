@@ -1,4 +1,4 @@
-export default function Logo({ ...props }) {
+export function LogoSVG({ ...props }) {
   return (
     <svg
       viewBox="0 0 273 75"

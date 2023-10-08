@@ -10,7 +10,7 @@ import {
   FormLabel,
   Select
 } from '@chakra-ui/react'
-import { useRouter } from 'next/navigation'
+import { useRouter, usePathname } from 'next/navigation'
 import { Link } from '@chakra-ui/next-js'
 
 import { GithubIcon, LinkedInIcon, SlackIcon, TwitterIcon } from '@/components/atoms/icons'
@@ -73,11 +73,12 @@ function SocialMediaLink({ href, title, icon }) {
 
 export function Footer({ primaryLinks, secondaryLinks }) {
   const router = useRouter()
+  const pathname = usePathname()
 
   const activeLocale = locales.find((locale) => locale.value === router.locale)
 
   const setLocale = (event) => {
-    router.push(router.asPath, router.asPath, { locale: event.target.value })
+    router.push(pathname, pathname, { locale: event.target.value })
   }
 
   return (

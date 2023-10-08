@@ -1,4 +1,5 @@
 'use client'
+
 import { Box, Heading, Stack, Text } from '@chakra-ui/react'
 import { MDXRemote } from 'next-mdx-remote'
 
