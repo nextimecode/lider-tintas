@@ -1,6 +1,6 @@
 import { pageQuery } from "@/lib/queries";
 import { parsePageData } from '@/utils/_parsePageData'
-import { Breakpoint, Grid, LogoCloud, PricingPlanSection, StatSection, Testimonial, Hero } from "@/components";
+import { Breakpoint, Grid, LogoCloud, PricingPlanSection, StatSection, Testimonial, Hero, Footer } from "@/components";
 
 async function getPost(slug: string) {
   const apolloUri = process.env.NEXT_PUBLIC_HYGRAPH_ENDPOINT as string
@@ -41,6 +41,7 @@ export default async function Home() {
       <StatSection columns={page.blocks[2].columns} gridSubtitle={page.blocks[2].gridSubtitle} gridTitle={page.blocks[2].gridTitle} />
       <Testimonial content={page.blocks[5].content} person={page.blocks[5].person} />
       <Hero buttons={page.hero.buttons} image={page.hero.image} navigation={page.navigation} page={page} />
+      <Footer primaryLinks={page.footer.primaryLinks} secondaryLinks={page.footer.secondaryLinks} />
     </>
   )
 }
