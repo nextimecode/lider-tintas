@@ -1,4 +1,4 @@
-import * as Blocks from '@/components/atoms/blocks'
+import * as Blocks from '@/components/organisms/blocks'
 
 export function Wrapper({ banner, blocks, hero, navigation, ...page }) {
   return (

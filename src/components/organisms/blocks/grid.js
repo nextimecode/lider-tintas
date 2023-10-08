@@ -1,3 +1,4 @@
+'use client'
 import { Box, Heading, Stack, Text } from '@chakra-ui/react'
 import { MDXRemote } from 'next-mdx-remote'
 
@@ -24,7 +25,7 @@ export default function Grid({
   return (
     <Box overflow="hidden" bg={theme === 'LIGHT' ? 'gray.50' : 'white'}>
       <Box pos="relative" maxW="7xl" mx="auto" py={12} px={[4, 6, null, 8]}>
-        {/* {splitLayout && (
+        {splitLayout && (
           <Box
             as={DotsSVG}
             color="gray.200"
@@ -35,7 +36,7 @@ export default function Grid({
             left="auto"
             transform="translate(66.66%, -75%)"
           />
-        )} */}
+        )}
 
         <Box
           position="relative"
@@ -82,7 +83,7 @@ export default function Grid({
               </Box>
             )}
           </Box>
-          {/* <Stack
+          <Stack
             as={gridTag || 'dl'}
             mt={{ base: 10, lg: splitLayout && 0 }}
             spacing={[10, 0]}
@@ -105,7 +106,7 @@ export default function Grid({
 
                   return <Component key={column.id} {...column} />
                 })}
-          </Stack> */}
+          </Stack>
         </Box>
       </Box>
     </Box>

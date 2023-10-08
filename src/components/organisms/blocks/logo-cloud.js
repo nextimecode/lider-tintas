@@ -27,13 +27,12 @@ export default function LogoCloud({ companies, logoCloudTitle }) {
                 flexShrink="0"
               >
                 <Box pos="relative" w={44}>
-                  {/* <Image
+                  <Image
                     src={company.logo.url}
                     height={company.logo.height}
                     width={company.logo.width}
-                    layout="responsive"
                     alt={company.logo.title}
-                  /> */}
+                  />
                 </Box>
               </Flex>
             ))}

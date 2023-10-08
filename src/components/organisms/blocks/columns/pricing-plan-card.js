@@ -1,6 +1,6 @@
 import { Box, Heading, Text, Link, Stack } from '@chakra-ui/react'
 
-import { CheckIcon } from 'src/components/icons'
+import { CheckIcon } from '@/components/atoms/icons'
 
 export default function PricingPlanCard({
   annualPrice,

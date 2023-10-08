@@ -23,11 +23,10 @@ export default function Testimonial({ content, person }) {
         /> */}
         <Box pos="relative">
           <Box h={8} pos="relative">
-            {/* <Image
+            <Image
               src={person.company.logo.url}
               alt={person.company.logo.title}
-              layout="fill"
-            /> */}
+            />
           </Box>
           <Box as="blockquote" mt={10}>
             <Box
