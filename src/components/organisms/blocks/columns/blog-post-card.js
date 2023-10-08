@@ -18,7 +18,7 @@ export default function BlogPostCard({
   return (
     <Flex flexDir="column" borderRadius="lg" boxShadow="lg" overflow="hidden">
       <Box flexShrink="0">
-        {/* {coverImage && (
+        {coverImage && (
           <Image
             className="blog-post-card-image"
             src={coverImage.url}
@@ -28,7 +28,7 @@ export default function BlogPostCard({
             height={coverImage.height}
             objectFit="cover"
           />
-        )} */}
+        )}
       </Box>
       <Flex
         display="flex"

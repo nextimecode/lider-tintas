@@ -1,7 +1,7 @@
 import { Flex, Box } from '@chakra-ui/react'
 import { MDXRemote } from 'next-mdx-remote'
 
-import { CheckIcon } from 'src/components/icons'
+import { CheckIcon } from '@/components/atoms/icons'
 
 export default function FeatureCheck({ content, title }) {
   return (

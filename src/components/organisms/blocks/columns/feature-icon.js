@@ -3,7 +3,7 @@ import { MDXRemote } from 'next-mdx-remote'
 import camelCase from 'lodash.camelcase'
 import startCase from 'lodash.startcase'
 
-import * as Icons from 'src/components/icons'
+import * as Icons from '@/components/atoms/icons'
 
 export default function FeatureIcon({ content, icon, title }) {
   const IconComponent =

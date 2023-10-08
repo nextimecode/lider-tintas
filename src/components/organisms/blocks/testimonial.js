@@ -1,7 +1,11 @@
+'use client'
+
 import { Box } from '@chakra-ui/react'
+import Image from 'next/image'
 import { MDXRemote } from 'next-mdx-remote'
 
-import { DotsSVG, SlashIcon } from '@/components'
+import { DotsSVG } from '@/components/atoms/svgs'
+import { SlashIcon } from '@/components/atoms/icons'
 
 export default function Testimonial({ content, person }) {
   if (!person) return null
@@ -9,7 +13,7 @@ export default function Testimonial({ content, person }) {
   return (
     <Box as="section" py={[12, null, 20, 24]} bg="gray.50" overflow="hidden">
       <Box pos="relative" maxW="7xl" mx="auto" px={[4, 6, null, 8]}>
-        {/* <Box
+        <Box
           as={DotsSVG}
           pos="absolute"
           top="100%"
@@ -20,14 +24,13 @@ export default function Testimonial({ content, person }) {
             lg: 'translate(50%, -25%)',
             xl: 'translate(50%, -50%)'
           }}
-        /> */}
+        />
         <Box pos="relative">
           <Box h={8} pos="relative">
-            {/* <Image
-              src={person.company.logo.url}
-              alt={person.company.logo.title}
-              layout="fill"
-            /> */}
+            <Image
+              src={person.company?.logo.url}
+              alt={person.company?.logo.title}
+            />
           </Box>
           <Box as="blockquote" mt={10}>
             <Box
@@ -41,7 +44,7 @@ export default function Testimonial({ content, person }) {
             >
               <MDXRemote {...content.mdx} />
             </Box>
-            {/* <Box as="footer" mt={8}>
+            <Box as="footer" mt={8}>
               <Box
                 display={{ md: 'flex' }}
                 alignItems={{ md: 'center' }}
@@ -51,9 +54,10 @@ export default function Testimonial({ content, person }) {
                   <Box mx="auto" h={10} w={10} position="relative">
                     <Image
                       className="avatar"
-                      alt={`${person.name} photo`}
+                      alt={`${person?.name} photo`}
                       src={person.photo.url}
-                      layout="fill"
+                      width={person.photo.width}
+                      height={person.photo.height}
                     />
                   </Box>
                 </Box>
@@ -85,7 +89,7 @@ export default function Testimonial({ content, person }) {
                   )}
                 </Box>
               </Box>
-            </Box> */}
+            </Box>
           </Box>
         </Box>
       </Box>
