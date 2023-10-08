@@ -2,7 +2,6 @@
 
 import {
   VisuallyHidden,
-  Link as ChakraLink,
   Text,
   Stack,
   Box,
@@ -11,8 +10,8 @@ import {
   FormLabel,
   Select
 } from '@chakra-ui/react'
-import Link from 'next/link'
 import { useRouter } from 'next/navigation'
+import { Link } from '@chakra-ui/next-js'
 
 import { GithubIcon, LinkedInIcon, SlackIcon, TwitterIcon } from '@/components/atoms/icons'
 import { locales } from '@/lib/locales'
@@ -40,16 +39,14 @@ function GridColumn({ links, title }) {
       <Stack as="ul" mt={4} spacing={4}>
         {links.map((link) => (
           <li key={link.id}>
-            <Link href={`/${link.slug}`} passHref>
-              <ChakraLink
-                color="gray.300"
-                _hover={{
+            <Link
+              href={`/${link.slug}`}
+              passHref
+              color="gray.300"
+              _hover={{
                   color: 'white'
-                }}
-              >
-                {link.navigationLabel ||
-                  link.slug.charAt(0).toUpperCase() + link.slug.slice(1)}
-              </ChakraLink>
+            }}>
+              {link.navigationLabel || link.slug.charAt(0).toUpperCase() + link.slug.slice(1)}
             </Link>
           </li>
         ))}
@@ -60,7 +57,7 @@ function GridColumn({ links, title }) {
 
 function SocialMediaLink({ href, title, icon }) {
   return (
-    <ChakraLink
+    <Link
       href={href}
       isExternal
       color="gray.400"
@@ -70,14 +67,14 @@ function SocialMediaLink({ href, title, icon }) {
     >
       <VisuallyHidden>{title}</VisuallyHidden>
       <Box as={icon} w={6} h={6} />
-    </ChakraLink>
+    </Link>
   )
 }
 
 export function Footer({ primaryLinks, secondaryLinks }) {
   const router = useRouter()
 
-  const activeLocale = locales.find((locale) => locale?.value === router.locale)
+  const activeLocale = locales.find((locale) => locale.value === router.locale)
 
   const setLocale = (event) => {
     router.push(router.asPath, router.asPath, { locale: event.target.value })

@@ -1,5 +1,5 @@
-// app/page.tsx
 'use client'
+
 import { Link as ChakraLink, LinkProps as ChakraLinkProps } from '@chakra-ui/next-js'
 import { ReactNode } from 'react'
 

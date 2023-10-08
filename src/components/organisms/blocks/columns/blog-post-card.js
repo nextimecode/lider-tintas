@@ -1,9 +1,11 @@
-import { Box, Flex, Link, Stack, Text } from '@chakra-ui/react'
-import NextLink from 'next/link'
+'use client'
+
+import { Box, Flex,  Stack, Text } from '@chakra-ui/react'
+import { Link } from '@chakra-ui/next-js'
 import Image from 'next/image'
 import startCase from 'lodash.startcase'
 
-export default function BlogPostCard({
+export function BlogPostCard({
   authors,
   category,
   coverImage,
@@ -26,7 +28,6 @@ export default function BlogPostCard({
             title={coverImage.title}
             width={coverImage.width}
             height={coverImage.height}
-            objectFit="cover"
           />
         )}
       </Box>
@@ -42,22 +43,21 @@ export default function BlogPostCard({
           <Text fontSize="sm" fontWeight="medium" color="indigo.600">
             {startCase(category.toLowerCase())}
           </Text>
-          {/* <NextLink href={`/blog/${slug}`}>
-            <Link
-              display="block"
-              mt={2}
-              _hover={{
-                textDecor: 'none'
-              }}
-            >
-              <Text fontSize="xl" fontWeight="semibold" color="gray.900">
-                {title}
-              </Text>
-              <Text mt={3} fontSize="md" color="gray.500">
-                {excerpt}
-              </Text>
-            </Link>
-          </NextLink> */}
+          <Link
+            href={`/blog/${slug}`}
+            display="block"
+            mt={2}
+            _hover={{
+              textDecor: 'none'
+            }}
+          >
+            <Text fontSize="xl" fontWeight="semibold" color="gray.900">
+              {title}
+            </Text>
+            <Text mt={3} fontSize="md" color="gray.500">
+              {excerpt}
+            </Text>
+          </Link>
         </Box>
         <Flex alignItems="center" mt={6}>
           <Stack
@@ -68,7 +68,7 @@ export default function BlogPostCard({
             zIndex="0"
             overflow="hidden"
           >
-            {/* {authors.map((author) => {
+            {authors.map((author) => {
               return (
                 <Box
                   key={author.id}
@@ -84,11 +84,10 @@ export default function BlogPostCard({
                     src={author.photo.url}
                     alt={author.name}
                     title={author.name}
-                    layout="fill"
                   />
                 </Box>
               )
-            })} */}
+            })}
           </Stack>
           <Box ml={3}>
             <Text fontSize="sm" fontWeight="medium" color="gray.900">

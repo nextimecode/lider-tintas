@@ -1,4 +1,4 @@
-export default function Slash({ ...props }) {
+export function SlashIcon({ ...props }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

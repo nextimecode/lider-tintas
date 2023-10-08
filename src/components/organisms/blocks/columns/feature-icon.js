@@ -5,9 +5,9 @@ import startCase from 'lodash.startcase'
 
 import * as Icons from '@/components/atoms/icons'
 
-export default function FeatureIcon({ content, icon, title }) {
+export function FeatureIcon({ content, icon, title }) {
   const IconComponent =
-    Icons[`${startCase(camelCase(icon))}Icon`] || Icons.DefaultIcon
+    Icons[`${startCase(camelCase(icon))}Icon`] || Icons.BoltIcon
 
   return (
     <div>

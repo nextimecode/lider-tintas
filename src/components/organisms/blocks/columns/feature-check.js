@@ -3,7 +3,7 @@ import { MDXRemote } from 'next-mdx-remote'
 
 import { CheckIcon } from '@/components/atoms/icons'
 
-export default function FeatureCheck({ content, title }) {
+export function FeatureCheck({ content, title }) {
   return (
     <Flex>
       <Box

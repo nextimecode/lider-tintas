@@ -1,8 +1,11 @@
-import { Box, Heading, Text, Link, Stack } from '@chakra-ui/react'
+'use client'
+
+import { Box, Heading, Text, Stack } from '@chakra-ui/react'
+import { Link } from '@chakra-ui/next-js'
 
 import { CheckIcon } from '@/components/atoms/icons'
 
-export default function PricingPlanCard({
+export function PricingPlanCard({
   annualPrice,
   billingPeriod,
   description,
@@ -48,7 +51,7 @@ export default function PricingPlanCard({
             {billingPeriod === 'monthly' ? '/mo' : '/yr'}
           </Text>
         </Text>
-        {/* <Link
+        <Link
           href="#"
           mt={8}
           display="block"
@@ -66,7 +69,7 @@ export default function PricingPlanCard({
           }}
         >
           Buy {name}
-        </Link> */}
+        </Link>
       </Box>
       <Box pt={6} pb={8} px={6}>
         <Heading

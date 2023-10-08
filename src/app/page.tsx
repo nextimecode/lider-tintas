@@ -31,7 +31,7 @@ async function getPost(slug: string) {
 }
 export default async function Home() {
   const page = await getPost('home')
-  console.log(page)
+  // console.log(page)
   return (
     <>
       <LogoCloud companies={page.blocks[0].companies} logoCloudTitle={page.blocks[0].logoCloudTitle} />

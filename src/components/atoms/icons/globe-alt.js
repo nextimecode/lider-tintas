@@ -1,4 +1,4 @@
-export default function GlobeAlt({ ...props }) {
+export function GlobeIcon({ ...props }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

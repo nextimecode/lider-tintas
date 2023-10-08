@@ -1,7 +1,7 @@
 import { Box } from '@chakra-ui/react'
 import { MDXRemote } from 'next-mdx-remote'
 
-export default function FAQCard({ content, title }) {
+export function FAQCard({ content, title }) {
   return (
     <div>
       <Box

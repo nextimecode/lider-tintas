@@ -30,6 +30,8 @@ export default function Testimonial({ content, person }) {
             <Image
               src={person.company?.logo.url}
               alt={person.company?.logo.title}
+              width={person.company?.logo.width}
+              height={person.company?.logo.height}
             />
           </Box>
           <Box as="blockquote" mt={10}>

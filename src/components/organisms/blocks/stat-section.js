@@ -8,7 +8,6 @@ export default function StatSection({
   gridSubtitle,
   gridTitle
 }) {
-  console.log('gridSubtitle.mdx', gridSubtitle.mdx)
   if (!(columns || columns.length)) return null
 
   return (

@@ -3,7 +3,7 @@ import { Box, HStack, Text } from '@chakra-ui/react'
 
 import { AvatarIcon } from '@/components/atoms/icons'
 
-export default function PersonCard({ name, photo, role }) {
+export function PersonCard({ name, photo, role }) {
   return (
     <li>
       <HStack display="flex" alignItems="center" spacing={{ base: 4, lg: 6 }}>
@@ -21,6 +21,8 @@ export default function PersonCard({ name, photo, role }) {
               src={photo.url}
               alt={name}
               title={name}
+              width={photo.width}
+              height={photo.height}
             />
           ) : (
             <Box as={AvatarIcon} h="full" w="full" color="gray.300" />

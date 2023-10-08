@@ -80,9 +80,9 @@ export function Hero({ buttons, image, navigation, page }) {
             src={image.url}
             alt={image.title}
             title={image.title}
-            layout="fill"
             priority={true}
-            objectFit="cover"
+            width={image.width}
+            height={image.height}
           />
         </Box>
       </Box>

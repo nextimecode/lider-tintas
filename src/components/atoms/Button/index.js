@@ -1,5 +1,7 @@
-import { Box, Link as ChakraLink } from '@chakra-ui/react'
-import Link from 'next/link'
+'use client'
+
+import { Box } from '@chakra-ui/react'
+import { Link } from '@chakra-ui/next-js'
 
 const linkDefaultStyles = {
   width: 'full',
@@ -19,24 +21,22 @@ export function Button({ href, label, theme }) {
   if (href.includes('http')) {
     return (
       <Box borderRadius="md" boxShadow="md">
-        <ChakraLink
+        <Link
           isExternal
           href={href}
           {...linkDefaultStyles}
           variant={theme}
         >
           {label}
-        </ChakraLink>
+        </Link>
       </Box>
     )
   }
 
   return (
     <Box borderRadius="md" boxShadow="md">
-      <Link href={href} passHref>
-        <ChakraLink {...linkDefaultStyles} variant={theme}>
-          {label}
-        </ChakraLink>
+      <Link href={href} passHref {...linkDefaultStyles} variant={theme}>
+        {label}
       </Link>
     </Box>
   )
