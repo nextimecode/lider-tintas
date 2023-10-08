@@ -1,3 +1,5 @@
+'use client'
+
 import { Box, Flex, Heading } from '@chakra-ui/react'
 import { MDXRemote } from 'next-mdx-remote'
 
@@ -24,11 +26,11 @@ export default function StatSection({
                 {gridTitle}
               </Heading>
             )}
-            {/* {gridSubtitle.mdx && (
+            {gridSubtitle.mdx && (
               <Box mt={[3, 4]} mx="auto" className="prose prose-xl">
                 <MDXRemote {...gridSubtitle.mdx} />
               </Box>
-            )} */}
+            )}
           </Box>
         </Box>
       )}
