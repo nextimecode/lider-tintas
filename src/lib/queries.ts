@@ -26,8 +26,8 @@ const blogPageQuery = gql`
     title
   }
 
-  query BlogPageQuery($locale: Locale!) {
-    page(locales: [$locale, en], where: { slug: "blog" }) {
+  query BlogPageQuery() {
+    page(where: { slug: "blog" }) {
       id
       footer {
         id
@@ -76,8 +76,8 @@ const blogPageQuery = gql`
 `
 
 const blogPostQuery = gql`
-  query BlogPostQuery($locale: Locale!, $slug: String!) {
-    allPosts: blogPosts(locales: [$locale, en], orderBy: published_ASC) {
+  query BlogPostQuery($slug: String!) {
+    allPosts: blogPosts(orderBy: published_ASC) {
       id
       slug
       title

@@ -44,8 +44,9 @@ function GridColumn({ links, title }) {
               passHref
               color="gray.300"
               _hover={{
-                  color: 'white'
-            }}>
+                color: 'white'
+              }}
+            >
               {link.navigationLabel || link.slug.charAt(0).toUpperCase() + link.slug.slice(1)}
             </Link>
           </li>
@@ -82,7 +83,7 @@ export function Footer({ primaryLinks, secondaryLinks }) {
   }
 
   return (
-    <Box as="footer" bg="gray.800" aria-label="footerHeading">
+    <Box as="footer" bg="primary" aria-label="footerHeading">
       <VisuallyHidden as="h2" id="footerHeading">
         Footer
       </VisuallyHidden>
@@ -186,7 +187,7 @@ export function Footer({ primaryLinks, secondaryLinks }) {
             color="gray.400"
             order={{ md: 1 }}
           >
-            &copy; {new Date().getFullYear()} GraphCMS GmbH All rights reserved.
+            &copy; {new Date().getFullYear()} Líder Tintas todos os direitos reservados.
           </Text>
         </Box>
       </Box>

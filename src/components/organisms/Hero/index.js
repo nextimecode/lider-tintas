@@ -1,11 +1,15 @@
 'use client'
 
+import dynamic from 'next/dynamic'
+
 import { Box, Heading, Stack } from '@chakra-ui/react'
 import Image from 'next/image'
 import { MDXRemote } from 'next-mdx-remote'
 
 import { Button } from '@/components'
 import { Navigation } from '@/components'
+
+const ReactPlayer = dynamic(() => import('react-player'), { ssr: false })
 
 export function Hero({ buttons, image, navigation, page }) {
   return (
@@ -16,7 +20,7 @@ export function Hero({ buttons, image, navigation, page }) {
           mx="auto"
           maxW="7xl"
           w="full"
-          py={{ lg: 48 }}
+          py={{ lg: 20 }}
           pt={16}
           pb={20}
           textAlign={{ base: 'center', lg: 'left' }}
@@ -75,7 +79,7 @@ export function Hero({ buttons, image, navigation, page }) {
           bottom={{ lg: 0 }}
           right={{ lg: 0 }}
         >
-          <Image
+          {/* <Image
             className="hero-image"
             src={image.url}
             alt={image.title}
@@ -83,6 +87,14 @@ export function Hero({ buttons, image, navigation, page }) {
             priority={true}
             width={image.width}
             height={image.height}
+          /> */}
+          <ReactPlayer
+            url='/video/movie.mp4'
+            controls={false}
+            playing
+            muted
+            width="100%"
+            height="100%"
           />
         </Box>
       </Box>

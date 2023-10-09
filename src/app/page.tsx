@@ -1,5 +1,5 @@
 import { pageQuery } from "@/lib/queries";
-import { parsePageData } from '@/utils/_parsePageData'
+import { parsePageData } from '@/utils/parsePageData'
 import { Breakpoint, Grid, LogoCloud, PricingPlanSection, StatSection, Testimonial, Hero, Footer } from "@/components";
 
 async function getPost(slug: string) {

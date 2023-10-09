@@ -13,4 +13,29 @@ export const components: ThemeComponents = {
   MainPanel,
   PanelContainer,
   PanelContent,
+  Container: {
+    baseStyle: {
+      maxW: '65ch'
+    }
+  },
+  Link: {
+    variants: {
+      INDIGO: {
+        bg: 'indigo.600',
+        color: 'white',
+        _hover: {
+          textDecoration: 'none',
+          backgroundColor: 'indigo.700'
+        }
+      },
+      WHITE: {
+        bg: 'white',
+        color: 'indigo.600',
+        _hover: {
+          textDecoration: 'none',
+          backgroundColor: 'gray.50'
+        }
+      }
+    }
+  }
 }
