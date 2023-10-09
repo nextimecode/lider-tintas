@@ -1,28 +1,24 @@
+'use client'
+
 import { Box, Heading, Stack, Text } from '@chakra-ui/react'
-import { MDXRemote } from 'next-mdx-remote'
 
-import * as Columns from '@/components/organisms/blocks/columns'
 import { DotsSVG } from '@/components'
+import { ProductSimple } from '../ProductSimples'
 
-export function Grid({
-  children,
-  columnComponent,
-  columns,
-  gridHeadline,
-  gridSubtitle,
-  gridTag,
-  gridTitle,
+export function Products({
   layout = 'STACKED',
   theme = 'WHITE',
   width = 1
 }) {
   if (!columns || !columns.length) return null
 
+  console.log(columnComponent)
+
   const stackLayout = layout === 'STACK'
   const splitLayout = layout === 'SPLIT'
 
   return (
-    <Box overflow="hidden" bg={theme === 'LIGHT' ? 'gray.50' : 'white'}>
+    <Box id="produtos" overflow="hidden" bg={theme === 'LIGHT' ? 'gray.50' : 'white'}>
       <Box pos="relative" maxW="7xl" mx="auto" py={12} px={[4, 6, null, 8]}>
         {splitLayout && (
           <Box
@@ -67,20 +63,18 @@ export function Grid({
               lineHeight="9"
               color="gray.900"
             >
-              {gridTitle}
+              Produtos em Destaques
             </Text>
 
-            {gridSubtitle && (
-              <Box
-                mt={4}
-                maxW="2xl"
-                fontSize="xl"
-                color="gray.500"
-                mx={{ lg: 'auto' }}
-              >
-                <MDXRemote {...gridSubtitle.mdx} />
-              </Box>
-            )}
+            <Box
+              mt={4}
+              maxW="2xl"
+              fontSize="xl"
+              color="gray.500"
+              mx={{ lg: 'auto' }}
+            >
+              Descubra os produtos que são sucesso em nossa loja. Qualidade e inovação em um só lugar."
+            </Box>
           </Box>
           <Stack
             as={gridTag || 'dl'}
@@ -98,12 +92,7 @@ export function Grid({
             {children
               ? children()
               : columns.map((column) => {
-                  const Component =
-                    Columns[columnComponent] || Columns[column.__typename]
-
-                  if (!Component) return null
-
-                  return <Component key={column.id} {...column} />
+                  return <ProductSimple key={column.id} {...column} />
                 })}
           </Stack>
         </Box>

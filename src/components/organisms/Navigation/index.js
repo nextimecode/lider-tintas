@@ -14,8 +14,10 @@ import { Link } from '@chakra-ui/next-js'
 import { usePathname } from 'next/navigation'
 import { Transition } from 'react-transition-group'
 
-import { LogoSVG, MarkSVG } from '@/components'
+import { MarkSVG } from '@/components'
 import { MenuIcon, XIcon } from '@/components'
+
+import Image from 'next/image'
 
 const defaultStyle = {
   transition: `all 150ms cubic-bezier(0.4, 0, 1, 1)`
@@ -29,6 +31,7 @@ const transitionStyles = {
 }
 
 export function Navigation({ pages }) {
+  console.log('page', pages)
   const container = useRef(null)
   const [mobileNavOpen, setMobileNavOpen] = useState(false)
   const pathname = usePathname()
@@ -166,7 +169,12 @@ export function Navigation({ pages }) {
         >
           <Flex w={{ lg: 0 }} flex={{ lg: '1 1 0' }}>
             <Link href="/">
-              <Box as={LogoSVG} h={10} color="indigo.600" w="auto" />
+              <Image
+                src={'/images/logo.png'}
+                alt="Logo da Líder Tintas"
+                width={150}
+                height={67}
+              />
             </Link>
           </Flex>
           <Box mr={-2} my={-2} display={{ md: 'none' }}>

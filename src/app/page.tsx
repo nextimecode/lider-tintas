@@ -1,8 +1,8 @@
 import { pageQuery } from "@/lib/queries";
 import { parsePageData } from '@/utils/parsePageData'
-import { Breakpoint, Grid, LogoCloud, PricingPlanSection, StatSection, Testimonial, Hero, Footer } from "@/components";
+import { Breakpoint, LogoCloud, Testimonial, Hero, Footer, Products } from "@/components";
 
-async function getPost(slug: string) {
+async function getPage(slug: string) {
   const apolloUri = process.env.NEXT_PUBLIC_HYGRAPH_ENDPOINT as string
 
   if (!apolloUri) {
@@ -30,48 +30,27 @@ async function getPost(slug: string) {
   return parsedPageData
 }
 export default async function Home() {
-  const page = await getPost('home')
+  const page = await getPage('home')
   // console.log(page)
   return (
     <>
       <Hero
         buttons={page.hero.buttons}
-        image={page.hero.image} navigation={page.navigation}
+        navigation={page.navigation}
         page={page}
       />
-      <LogoCloud
-        companies={page.blocks[0].companies}
-        logoCloudTitle={page.blocks[0].logoCloudTitle}
-      />
+      {/* <Products /> */}
       <Breakpoint
-        buttons={page.blocks[3].buttons}
-        subtitle={page.blocks[3].subtitle}
-        title={page.blocks[3].title}
-      />
-      <Grid
-        children={page.blocks[4].children}
-        columnComponent={page.blocks[4].columnComponent}
-        columns={page.blocks[4].columns}
-        gridHeadline={page.blocks[4].gridHeadLine}
-        gridSubtitle={page.blocks[4].gridSubtitle}
-        gridTag={page.blocks[4].gridTag}
-        gridTitle={page.blocks[4].gridTitle}
-        layout={page.blocks[4].layout}
-        theme={page.blocks[4].theme}
-        width={page.blocks[4].width}
-      />
-      <PricingPlanSection
-        page={page}
-        grid={page.blocks[4]}
-      />
-      <StatSection
-        columns={page.blocks[2].columns}
-        gridSubtitle={page.blocks[2].gridSubtitle}
-        gridTitle={page.blocks[2].gridTitle}
+        buttons={page.blocks[0].buttons}
+        subtitle={page.blocks[0].subtitle}
+        title={page.blocks[0].title}
       />
       <Testimonial
-        content={page.blocks[5].content}
-        person={page.blocks[5].person}
+        content={page.blocks[1].content}
+        person={page.blocks[1].person}
+      />
+      <LogoCloud
+        logoCloudTitle={page.blocks[2].logoCloudTitle}
       />
       <Footer
         primaryLinks={page.footer.primaryLinks}

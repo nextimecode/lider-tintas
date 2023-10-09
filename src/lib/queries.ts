@@ -233,14 +233,6 @@ const pageQuery = (slug: string) => `{
             }
             role
           }
-          ... on PricingPlan {
-            id
-            annualPrice
-            description
-            included
-            monthlyPrice
-            name
-          }
           ... on Stat {
             id
             label
@@ -260,16 +252,6 @@ const pageQuery = (slug: string) => `{
       }
       ... on LogoCloud {
         id
-        companies {
-          id
-          logo {
-            id
-            height
-            url
-            width
-          }
-          name
-        }
         logoCloudTitle: title
       }
       ... on Testimonial {
@@ -298,21 +280,6 @@ const pageQuery = (slug: string) => `{
         }
       }
     }
-    footer {
-      id
-      primaryLinks {
-        id
-        navigationLabel
-        slug
-      }
-      secondaryLinks {
-        id
-        navigationLabel
-        slug
-      }
-      slug
-      title
-    }
     hero {
       id
       buttons {
@@ -328,6 +295,21 @@ const pageQuery = (slug: string) => `{
         width
       }
       slug
+    }
+    footer {
+      id
+      primaryLinks {
+        id
+        navigationLabel
+        slug
+      }
+      secondaryLinks {
+        id
+        navigationLabel
+        slug
+      }
+      slug
+      title
     }
     id
     marketing {
@@ -349,7 +331,7 @@ const pageQuery = (slug: string) => `{
     navigation {
       id
       slug
-      pages(where: { slug_not: "home" }) {
+      pages(where: {slug_not: "home"}) {
         id
         navigationLabel
         slug

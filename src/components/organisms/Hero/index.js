@@ -3,15 +3,14 @@
 import dynamic from 'next/dynamic'
 
 import { Box, Heading, Stack } from '@chakra-ui/react'
-import Image from 'next/image'
 import { MDXRemote } from 'next-mdx-remote'
 
 import { Button } from '@/components'
-import { Navigation } from '@/components'
+import { Navigation } from '@/components/organisms/Navigation'
 
 const ReactPlayer = dynamic(() => import('react-player'), { ssr: false })
 
-export function Hero({ buttons, image, navigation, page }) {
+export function Hero({ buttons, navigation, page }) {
   return (
     <Box position="relative" bg="gray.50">
       <Navigation {...navigation} />
@@ -79,15 +78,6 @@ export function Hero({ buttons, image, navigation, page }) {
           bottom={{ lg: 0 }}
           right={{ lg: 0 }}
         >
-          {/* <Image
-            className="hero-image"
-            src={image.url}
-            alt={image.title}
-            title={image.title}
-            priority={true}
-            width={image.width}
-            height={image.height}
-          /> */}
           <ReactPlayer
             url='/video/movie.mp4'
             controls={false}
