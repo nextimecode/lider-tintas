@@ -12,6 +12,7 @@ async function getPage(slug: string) {
   }
 
   const response = await fetch(apolloUri, {
+    cache: 'no-store',
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -31,7 +32,7 @@ async function getPage(slug: string) {
 }
 export default async function Home() {
   const page = await getPage('home')
-  // console.log(page)
+  console.log(page)
   return (
     <>
       <Hero
@@ -39,7 +40,7 @@ export default async function Home() {
         navigation={page.navigation}
         page={page}
       />
-      {/* <Products /> */}
+      {page.products && <Products items={page.products} />}
       <Breakpoint
         buttons={page.blocks[0].buttons}
         subtitle={page.blocks[0].subtitle}

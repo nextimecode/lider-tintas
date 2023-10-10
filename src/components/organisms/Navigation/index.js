@@ -31,7 +31,6 @@ const transitionStyles = {
 }
 
 export function Navigation({ pages }) {
-  console.log('page', pages)
   const container = useRef(null)
   const [mobileNavOpen, setMobileNavOpen] = useState(false)
   const pathname = usePathname()

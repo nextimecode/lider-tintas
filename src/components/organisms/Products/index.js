@@ -6,13 +6,11 @@ import { DotsSVG } from '@/components'
 import { ProductSimple } from '../ProductSimples'
 
 export function Products({
+  items,
   layout = 'STACKED',
   theme = 'WHITE',
   width = 1
 }) {
-  if (!columns || !columns.length) return null
-
-  console.log(columnComponent)
 
   const stackLayout = layout === 'STACK'
   const splitLayout = layout === 'SPLIT'
@@ -32,7 +30,6 @@ export function Products({
             transform="translate(66.66%, -75%)"
           />
         )}
-
         <Box
           position="relative"
           display={{ lg: splitLayout && 'grid' }}
@@ -43,18 +40,16 @@ export function Products({
             textAlign={{ lg: stackLayout && 'center' }}
             gridColumn={{ lg: splitLayout && 'span 1 / span 1' }}
           >
-            {gridHeadline && (
-              <Heading
-                as="h2"
-                fontSize="md"
-                fontWeight="semibold"
-                color="indigo.600"
-                textTransform="uppercase"
-                letterSpacing="wide"
-              >
-                {gridHeadline}
-              </Heading>
-            )}
+            <Heading
+              as="h2"
+              fontSize="md"
+              fontWeight="semibold"
+              color="indigo.600"
+              textTransform="uppercase"
+              letterSpacing="wide"
+            >
+              teste
+            </Heading>
             <Text
               mt={2}
               fontSize={['3xl', '4xl']}
@@ -77,7 +72,7 @@ export function Products({
             </Box>
           </Box>
           <Stack
-            as={gridTag || 'dl'}
+            as={'dl'}
             mt={{ base: 10, lg: splitLayout && 0 }}
             spacing={[10, 0]}
             display={{ sm: 'grid' }}
@@ -89,11 +84,9 @@ export function Products({
               lg: `repeat(${width}, 1fr)`
             }}
           >
-            {children
-              ? children()
-              : columns.map((column) => {
-                  return <ProductSimple key={column.id} {...column} />
-                })}
+            {products.map((product) => {
+              return <ProductSimple key={product.id} {...product} />
+            })}
           </Stack>
         </Box>
       </Box>

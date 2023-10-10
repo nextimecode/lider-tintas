@@ -176,80 +176,6 @@ const pageQuery = (slug: string) => `{
         subtitle
         title
       }
-      ... on Grid {
-        id
-        columns {
-          __typename
-          ... on BlogPost {
-            id
-            authors {
-              id
-              name
-              photo {
-                id
-                url
-              }
-              role
-            }
-            category
-            content
-            coverImage {
-              id
-              height
-              url
-              width
-            }
-            excerpt
-            published
-            slug
-            title
-          }
-          ... on Faq {
-            id
-            content
-            title
-          }
-          ... on Feature {
-            id
-            content
-            icon
-            image {
-              id
-              height
-              url
-              width
-            }
-            slug
-            title
-          }
-          ... on Person {
-            id
-            name
-            photo {
-              id
-              height
-              url
-              width
-            }
-            role
-          }
-          ... on Stat {
-            id
-            label
-            value
-          }
-        }
-        columnComponent
-        component
-        gridHeadline: headline
-        layout
-        slug
-        gridSubtitle: subtitle
-        gridTag: tag
-        theme
-        gridTitle: title
-        width
-      }
       ... on LogoCloud {
         id
         logoCloudTitle: title
@@ -352,6 +278,19 @@ const pageQuery = (slug: string) => `{
     }
     subtitle
     title
+  }
+  products {
+    id
+    image {
+      height
+      id
+      url
+      width
+    }
+    name
+    title
+    value
+    beforeValue
   }
 }`
 
