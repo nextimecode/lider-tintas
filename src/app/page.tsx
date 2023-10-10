@@ -1,8 +1,8 @@
-import { pageQuery } from "@/lib/queries";
+import { productsQuery } from "@/lib/queries";
 import { parsePageData } from '@/utils/parsePageData'
 import { Breakpoint, LogoCloud, Testimonial, Hero, Footer, Products } from "@/components";
 
-async function getPage(slug: string) {
+async function getPage() {
   const apolloUri = process.env.NEXT_PUBLIC_HYGRAPH_ENDPOINT as string
 
   if (!apolloUri) {
@@ -19,29 +19,27 @@ async function getPage(slug: string) {
       Accept: 'application/json',
     },
     body: JSON.stringify({
-      query: pageQuery(slug),
-      variables: {
-        slug
-      },
+      query: productsQuery(),
     }),
   })
-  const { data } = await response.json()
-  const page = data.page
-  const parsedPageData = await parsePageData(page)
-  return parsedPageData
+  try {
+    const { data } = await response.json()
+    return data
+  } catch (error) {
+    console.log(error)
+  }
 }
 export default async function Home() {
-  const page = await getPage('home')
-  console.log(page)
+  const { products } = await getPage()
   return (
     <>
-      <Hero
+      {/* <Hero
         buttons={page.hero.buttons}
         navigation={page.navigation}
         page={page}
-      />
-      {page.products && <Products items={page.products} />}
-      <Breakpoint
+      /> */}
+      {products && <Products products={products} />}
+      {/* <Breakpoint
         buttons={page.blocks[0].buttons}
         subtitle={page.blocks[0].subtitle}
         title={page.blocks[0].title}
@@ -56,7 +54,7 @@ export default async function Home() {
       <Footer
         primaryLinks={page.footer.primaryLinks}
         secondaryLinks={page.footer.secondaryLinks}
-      />
+      /> */}
     </>
   )
 }

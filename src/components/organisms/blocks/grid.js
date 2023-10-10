@@ -1,21 +1,28 @@
-'use client'
-
 import { Box, Heading, Stack, Text } from '@chakra-ui/react'
+import { MDXRemote } from 'next-mdx-remote'
 
+import * as Columns from '@/components/organisms/blocks/columns'
 import { DotsSVG } from '@/components'
-import { ProductSimple } from '../ProductSimples'
 
-export function Products({
-  products,
-  layout = 'SPLIT',
+export function Grid({
+  children,
+  columnComponent,
+  columns,
+  gridHeadline,
+  gridSubtitle,
+  gridTag,
+  gridTitle,
+  layout = 'STACKED',
   theme = 'WHITE',
-  width = 2
+  width = 1
 }) {
+  if (!columns || !columns.length) return null
+
   const stackLayout = layout === 'STACK'
   const splitLayout = layout === 'SPLIT'
 
   return (
-    <Box id="produtos" overflow="hidden" bg={theme === 'LIGHT' ? 'gray.50' : 'white'}>
+    <Box overflow="hidden" bg={theme === 'LIGHT' ? 'gray.50' : 'white'}>
       <Box pos="relative" maxW="7xl" mx="auto" py={12} px={[4, 6, null, 8]}>
         {splitLayout && (
           <Box
@@ -29,6 +36,7 @@ export function Products({
             transform="translate(66.66%, -75%)"
           />
         )}
+
         <Box
           position="relative"
           display={{ lg: splitLayout && 'grid' }}
@@ -39,6 +47,18 @@ export function Products({
             textAlign={{ lg: stackLayout && 'center' }}
             gridColumn={{ lg: splitLayout && 'span 1 / span 1' }}
           >
+            {gridHeadline && (
+              <Heading
+                as="h2"
+                fontSize="md"
+                fontWeight="semibold"
+                color="indigo.600"
+                textTransform="uppercase"
+                letterSpacing="wide"
+              >
+                {gridHeadline}
+              </Heading>
+            )}
             <Text
               mt={2}
               fontSize={['3xl', '4xl']}
@@ -47,21 +67,23 @@ export function Products({
               lineHeight="9"
               color="gray.900"
             >
-              Produtos em Destaques
+              {gridTitle}
             </Text>
 
-            <Box
-              mt={4}
-              maxW="2xl"
-              fontSize="xl"
-              color="gray.500"
-              mx={{ lg: 'auto' }}
-            >
-              Descubra os produtos que são sucesso em nossa loja. Qualidade e inovação em um só lugar.
-            </Box>
+            {gridSubtitle && (
+              <Box
+                mt={4}
+                maxW="2xl"
+                fontSize="xl"
+                color="gray.500"
+                mx={{ lg: 'auto' }}
+              >
+                <MDXRemote {...gridSubtitle.mdx} />
+              </Box>
+            )}
           </Box>
           <Stack
-            as={'dl'}
+            as={gridTag || 'dl'}
             mt={{ base: 10, lg: splitLayout && 0 }}
             spacing={[10, 0]}
             display={{ sm: 'grid' }}
@@ -73,9 +95,16 @@ export function Products({
               lg: `repeat(${width}, 1fr)`
             }}
           >
-            {products.map((product) => {
-              return <ProductSimple key={product.id} {...product} />
-            })}
+            {children
+              ? children()
+              : columns.map((column) => {
+                  const Component =
+                    Columns[columnComponent] || Columns[column.__typename]
+
+                  if (!Component) return null
+
+                  return <Component key={column.id} {...column} />
+                })}
           </Stack>
         </Box>
       </Box>
